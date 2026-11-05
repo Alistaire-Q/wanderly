@@ -50,7 +50,7 @@ variables, Google/Apple configuration, sandbox delivery and build commands.
 
 ### Production URL
 
-- **Web:** <https://your-vercel-project>.vercel.app — replace this placeholder
+- **Web:** https://wanderly-tau-weld.vercel.app/
   with the URL Vercel shows after the first import (Vercel may append a suffix
   if the `wanderly` name is already taken).
 - **Mobile:** preview APKs and production builds are distributed through EAS;
