@@ -1,0 +1,768 @@
+/* ============================================
+   Wanderly — User Profile (social)
+   Opened from the account row in Settings.
+   Palette: navy #17233C · grey #8993A5 ·
+   blue #105EF3 · soft blue #D6E3FA @ 97%
+   ============================================ */
+
+.userp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Header ---- */
+.userp-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 22px 18px;
+  background: rgba(214, 227, 250, 0.97);
+}
+
+.userp-back {
+  width: 26px;
+  height: 26px;
+  margin-left: -6px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  color: #17233c;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.userp-back:hover {
+  opacity: 0.65;
+}
+
+.userp-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  color: #17233c;
+}
+
+/* ---- Scroll area ---- */
+.userp-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 22px 40px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.userp-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Avatar + stats ---- */
+.userp-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userp-avatar {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #d7dce4 0%, #c2c9d4 100%);
+  color: #8c96a6;
+  overflow: hidden;
+}
+
+.userp-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.userp-avatar svg {
+  margin-top: 12px;
+}
+
+.userp-stats {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 6px;
+}
+
+.userp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.userp-stat strong {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #17233c;
+}
+
+.userp-stat span {
+  font-size: 9.5px;
+  font-weight: 400;
+  color: #8993a5;
+}
+
+/* ---- Identity ---- */
+.userp-identity {
+  margin-top: 16px;
+}
+
+.userp-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+  color: #17233c;
+}
+
+.userp-bio {
+  margin-top: 4px;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #5c6880;
+}
+
+/* ---- Buttons ---- */
+.userp-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.userp-btn {
+  flex: 1;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.userp-btn.is-ghost {
+  border: 1px solid #d9dde5;
+  background: #ffffff;
+  color: #17233c;
+}
+
+.userp-btn.is-ghost:hover {
+  border-color: #b9c6dd;
+  background: #f7f9fd;
+}
+
+.userp-btn.is-solid {
+  border: none;
+  background: #105ef3;
+  color: #ffffff;
+}
+
+.userp-btn.is-solid:hover {
+  background: #0d51d6;
+}
+
+.userp-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---- Tabs ---- */
+.userp-tabs {
+  display: flex;
+  gap: 4px;
+  margin-top: 20px;
+  border-bottom: 1px solid #eceff5;
+}
+
+.userp-tab {
+  position: relative;
+  flex: 1;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  color: #8993a5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.userp-tab.is-active {
+  color: #105ef3;
+}
+
+.userp-tab.is-active::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: #105ef3;
+}
+
+.userp-tab-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 15px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #eef3fd;
+  font-size: 9px;
+  font-weight: 600;
+  color: #5c6880;
+}
+
+.userp-tab.is-active .userp-tab-count {
+  background: rgba(16, 94, 243, 0.12);
+  color: #105ef3;
+}
+
+/* ---- Feed ---- */
+.userp-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 16px;
+}
+
+.userp-feed-empty {
+  padding: 26px 0;
+  text-align: center;
+  font-size: 11.5px;
+  color: #8993a5;
+}
+
+.userp-post {
+  display: flex;
+  flex-direction: column;
+}
+
+.userp-post-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userp-post-avatar {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(214, 227, 250, 0.97);
+  color: #105ef3;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  overflow: hidden;
+}
+
+.userp-post-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userp-post-who {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.userp-post-who strong {
+  font-size: 11px;
+  font-weight: 600;
+  color: #17233c;
+}
+
+.userp-post-who span {
+  font-size: 9px;
+  font-weight: 400;
+  color: #8993a5;
+}
+
+.userp-post-media {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.userp-post-image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #eef3fd;
+}
+
+.userp-post-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.userp-post-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #5c6880;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.userp-post-action:hover {
+  color: #105ef3;
+}
+
+.userp-post-action.is-liked {
+  color: #e5484d;
+}
+
+.userp-post-action.is-liked:hover {
+  color: #d93a40;
+}
+
+/* Heart pops smoothly every time the like state changes. */
+.userp-like-icon {
+  display: inline-flex;
+  transform-origin: center;
+}
+
+.userp-like-icon.is-pulsing {
+  animation: userp-like-pop 0.36s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes userp-like-pop {
+  0% {
+    transform: scale(1);
+  }
+  38% {
+    transform: scale(1.34);
+  }
+  68% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .userp-like-icon.is-pulsing {
+    animation: none;
+  }
+}
+
+.userp-post-caption {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #17233c;
+  cursor: pointer;
+}
+
+.userp-post-caption strong {
+  font-weight: 600;
+}
+
+.userp-post-more {
+  display: block;
+  margin-top: 4px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #8993a5;
+  transition: color 0.2s ease;
+}
+
+.userp-post-caption:hover .userp-post-more {
+  color: #105ef3;
+}
+
+/* ---- Comments live on the post detail screen (PostDetail.css) ---- */
+
+/* ---- Reviews ---- */
+.userp-review {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #e8ecf3;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.userp-review-thumb {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #eef3fd;
+}
+
+.userp-review-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.userp-review-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.userp-review-top strong {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  color: #17233c;
+}
+
+.userp-review-rating {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f5a623;
+}
+
+.userp-review-text {
+  margin-top: 4px;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: #5c6880;
+}
+
+.userp-review-date {
+  display: block;
+  margin-top: 6px;
+  font-size: 9px;
+  color: #8993a5;
+}
+
+/* ---- Sheets ---- */
+.userp-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.userp-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(23, 35, 60, 0.45);
+  cursor: pointer;
+  animation: userp-fade 0.2s ease;
+}
+
+.userp-sheet {
+  position: relative;
+  max-height: 92%;
+  overflow-y: auto;
+  padding: 10px 22px 24px;
+  border-radius: 24px 24px 0 0;
+  background: #ffffff;
+  box-shadow: 0 -8px 24px rgba(23, 35, 60, 0.16);
+  animation: userp-sheet-in 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  scrollbar-width: none;
+}
+
+.userp-sheet::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes userp-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes userp-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.userp-sheet-grabber {
+  display: block;
+  width: 36px;
+  height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 2px;
+  background: #e7ebf2;
+}
+
+.userp-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.userp-sheet-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: #17233c;
+}
+
+.userp-sheet-close {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: #f2f5fa;
+  color: #17233c;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.userp-sheet-close:hover {
+  background: #e7ebf2;
+}
+
+/* ---- New post ---- */
+.userp-photo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 150px;
+  margin-top: 14px;
+  border: 1.5px dashed #c9d6ee;
+  border-radius: 14px;
+  background: #f7f9fd;
+  color: #8993a5;
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.userp-photo:hover {
+  border-color: #105ef3;
+  color: #105ef3;
+}
+
+.userp-photo.is-filled {
+  border: none;
+  padding: 0;
+}
+
+.userp-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.userp-photo-change {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(12, 18, 30, 0.62);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.userp-file {
+  display: none;
+}
+
+.userp-caption {
+  width: 100%;
+  min-height: 78px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f2;
+  border-radius: 12px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #17233c;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.userp-caption::placeholder {
+  color: #8993a5;
+}
+
+.userp-caption:focus {
+  border-color: #105ef3;
+}
+
+.userp-sheet-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.userp-counter {
+  font-size: 9.5px;
+  color: #8993a5;
+}
+
+.userp-btn.is-share {
+  flex: 0 0 auto;
+  width: 118px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+/* ---- Edit profile ---- */
+.userp-edit-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 16px;
+}
+
+.userp-avatar.is-small {
+  width: 58px;
+  height: 58px;
+}
+
+.userp-avatar.is-small svg {
+  margin-top: 9px;
+}
+
+.userp-btn.is-compact {
+  flex: 0 0 auto;
+  width: auto;
+  height: 32px;
+  padding: 0 14px;
+  font-size: 10.5px;
+}
+
+.userp-field {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.userp-field > span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 9.5px;
+  font-weight: 500;
+  color: #8993a5;
+}
+
+.userp-field input,
+.userp-field textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #e2e8f2;
+  border-radius: 10px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #17233c;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s ease;
+}
+
+.userp-field input:focus,
+.userp-field textarea:focus {
+  border-color: #105ef3;
+}
+
+/* ---- Wider frames (tablets / desktop) ---- */
+@media (min-width: 700px) {
+  .userp-scroll {
+    padding: 24px 28px 48px;
+  }
+
+  .userp-post-image {
+    height: 300px;
+  }
+
+  .userp-sheet {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+}

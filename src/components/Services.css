@@ -1,0 +1,386 @@
+/* ============================================
+   Wanderly — List of Services Screen Styles
+   ============================================ */
+
+.services {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f2f3f5;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Header ---- */
+.services-header {
+  flex-shrink: 0;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #f2f3f5;
+  z-index: 2;
+}
+
+.services-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.services-back {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  margin-left: -5px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #001033;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.services-back:hover {
+  background: #e4e6ea;
+}
+
+.services-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #001033;
+}
+
+/* ---- Search Bar ---- */
+.services-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 6px 0 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e6;
+  border-radius: 12px;
+}
+
+.services-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  color: #001033;
+}
+
+.services-search-input::placeholder {
+  color: #aab3c0;
+}
+
+.services-search-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #186bf0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.services-search-btn:hover {
+  background: #f1f5ff;
+}
+
+/* ---- Filter Chips ---- */
+.services-filters {
+  display: flex;
+  gap: 8px;
+  margin: 0 -20px;
+  padding: 0 20px 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.services-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.services-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 13px;
+  border: none;
+  border-radius: 8px;
+  background: #e8e9ed;
+  color: #2a2f3a;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.services-chip:hover {
+  background: #dfe1e6;
+}
+
+.services-chip.is-active {
+  background: #186bf0;
+  color: #ffffff;
+}
+
+/* ---- Scrollable Content ---- */
+.services-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 18px 0 120px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.services-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.services-section-title {
+  padding: 0 20px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: #001033;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+/* ---- Service Card (collapsed) ---- */
+.services-card {
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  /* Keeps an opened sheet clear of the floating tab bar. */
+  scroll-margin-bottom: 100px;
+}
+
+.services-card-main {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.services-card-image {
+  flex-shrink: 0;
+  display: block;
+  width: 58px;
+  height: 58px;
+  border-radius: 9px;
+  object-fit: cover;
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.services-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-card-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1e1e1e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.services-card-chip {
+  align-self: flex-start;
+  margin: 4px 0 6px;
+  padding: 1px 8px;
+  border: 1px solid #e4e8ee;
+  border-radius: 5px;
+  background: #ffffff;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #4b5563;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.services-card-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.services-card-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-size: 9.5px;
+  font-weight: 400;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.services-card-location svg {
+  flex-shrink: 0;
+}
+
+.services-card-rating {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f5a623;
+  transition: color 0.3s ease;
+}
+
+/* ---- Service Card (open / highlighted) ---- */
+.services-card.is-open {
+  padding: 12px;
+  background: #186bf0;
+  box-shadow: 0 10px 22px rgba(24, 107, 240, 0.28);
+}
+
+.services-card.is-open .services-card-image {
+  width: 62px;
+  height: 62px;
+  border-radius: 10px;
+}
+
+.services-card.is-open .services-card-name {
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.services-card.is-open .services-card-chip {
+  border-color: transparent;
+  background: #ffffff;
+  color: #17223b;
+}
+
+.services-card.is-open .services-card-location {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.services-card.is-open .services-card-rating {
+  color: #ffc94d;
+}
+
+/* ---- Details sheet (smooth expand / collapse) ---- */
+.services-card-sheet {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.24s ease,
+    visibility 0s linear 0.32s;
+}
+
+.services-card.is-open .services-card-sheet {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.24s ease 0.06s,
+    visibility 0s linear 0s;
+}
+
+.services-card-sheet-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ---- Details content ---- */
+.services-card-details {
+  margin-top: 12px;
+}
+
+.services-card-desc {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.services-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.services-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 9px;
+  font-weight: 500;
+  color: #17223b;
+}
+
+.services-card-cta {
+  width: 100%;
+  height: 32px;
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.services-card-cta:hover {
+  background: rgba(255, 255, 255, 0.16);
+}

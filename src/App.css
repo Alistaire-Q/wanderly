@@ -1,0 +1,80 @@
+/* ============================================
+   Wanderly — App Shell
+   The mobile-first screens are capped to a
+   comfortable reading width on tablets and
+   desktops, with a branded backdrop around
+   the frame. Below 700px the frame is full
+   bleed, so phones keep the original layout.
+   ============================================ */
+
+.app-shell {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.app-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 600px) {
+  .app-shell {
+    align-items: center;
+    padding: 20px 0;
+    background:
+      radial-gradient(900px 640px at 50% -8%, rgba(24, 107, 240, 0.5) 0%, rgba(24, 107, 240, 0) 62%),
+      radial-gradient(760px 540px at 50% 112%, rgba(16, 94, 243, 0.24) 0%, rgba(16, 94, 243, 0) 66%),
+      linear-gradient(180deg, #0b1424 0%, #070c16 100%);
+  }
+
+  .app-frame {
+    height: 100%;
+    max-height: 920px;
+    border-radius: 28px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 28px 90px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (min-width: 1800px) {
+  .app-frame {
+    max-width: 620px;
+  }
+}
+
+/* ============================================
+   Wanderly — Splash Screen Styles
+   ============================================ */
+
+.splash-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.splash-icon {
+  width: 250px;
+  height: 250px;
+  max-width: 62%;
+}
+
+.splash-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}

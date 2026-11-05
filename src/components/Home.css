@@ -1,0 +1,455 @@
+/* ============================================
+   Wanderly — Home Screen Styles
+   ============================================ */
+
+.home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Blue Header ---- */
+.home-header {
+  flex-shrink: 0;
+  background: #186bf0;
+  border-radius: 0 0 50px 50px;
+  padding: 32px 22px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 6px 20px rgba(24, 107, 240, 0.22);
+  z-index: 2;
+}
+
+.home-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.home-location {
+  min-width: 0;
+}
+
+.home-location-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.home-location-city {
+  margin-top: 3px;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+}
+
+.home-settings {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  margin-top: 1px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.home-settings:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.home-settings:active {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+/* ---- Search Bar ---- */
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 5px 0 18px;
+  background: #ffffff;
+  border-radius: 26px;
+  box-shadow: 0 6px 16px rgba(8, 38, 90, 0.18);
+}
+
+.home-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  color: #001033;
+}
+
+.home-search-input::placeholder {
+  color: #aab3c0;
+}
+
+.home-search-btn {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #eef1f6;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #186bf0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+}
+
+.home-search-btn:hover {
+  background: #f5f8ff;
+}
+
+/* ---- Scrollable Content ---- */
+.home-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 0 120px;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.home-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.home-section {
+  margin-bottom: 22px;
+}
+
+.home-section:last-child {
+  margin-bottom: 0;
+}
+
+.home-section-title {
+  padding: 0 22px;
+  margin-bottom: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #001033;
+}
+
+/* ---- Popular Nearby Cards ---- */
+.home-popular-row {
+  display: flex;
+  gap: 14px;
+  padding: 0 22px 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Keeps the mandatory snap from pulling the first card under the padding. */
+  scroll-padding: 0 22px;
+  scrollbar-width: none;
+}
+
+.home-popular-row::-webkit-scrollbar {
+  display: none;
+}
+
+.home-popular-card {
+  position: relative;
+  flex: 0 0 164px;
+  height: 200px;
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #eef2f7;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.home-popular-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-popular-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0) 45%,
+      rgba(0, 0, 0, 0.42) 100%);
+}
+
+.home-popular-name {
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(17, 24, 39, 0.55);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-popular-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 3px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- Recommended Cards ---- */
+.home-recommended-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 22px;
+}
+
+.home-rec-card {
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  /* Keeps an opened sheet clear of the floating tab bar. */
+  scroll-margin-bottom: 100px;
+}
+
+.home-rec-main {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.home-rec-image {
+  flex-shrink: 0;
+  display: block;
+  width: 58px;
+  height: 58px;
+  border-radius: 9px;
+  object-fit: cover;
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.home-rec-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-rec-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1e1e1e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.home-rec-chip {
+  align-self: flex-start;
+  margin: 4px 0 6px;
+  padding: 1px 8px;
+  border: 1px solid #e4e8ee;
+  border-radius: 5px;
+  background: #ffffff;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #4b5563;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.home-rec-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.home-rec-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-size: 9.5px;
+  font-weight: 400;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.home-rec-location svg {
+  flex-shrink: 0;
+}
+
+.home-rec-rating {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f5a623;
+  transition: color 0.3s ease;
+}
+
+/* ---- Recommended Card (detail sheet, only when open) ---- */
+.home-rec-card.is-open {
+  padding: 12px;
+  background: #186bf0;
+  box-shadow: 0 10px 22px rgba(24, 107, 240, 0.28);
+}
+
+.home-rec-card.is-open .home-rec-image {
+  width: 62px;
+  height: 62px;
+  border-radius: 10px;
+}
+
+.home-rec-card.is-open .home-rec-name {
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.home-rec-card.is-open .home-rec-chip {
+  border-color: transparent;
+  background: #ffffff;
+  color: #17223b;
+}
+
+.home-rec-card.is-open .home-rec-location {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.home-rec-card.is-open .home-rec-rating {
+  color: #ffc94d;
+}
+
+/* ---- Detail sheet (smooth expand / collapse) ---- */
+.home-rec-sheet {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.24s ease,
+    visibility 0s linear 0.32s;
+}
+
+.home-rec-card.is-open .home-rec-sheet {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.24s ease 0.06s,
+    visibility 0s linear 0s;
+}
+
+.home-rec-sheet-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.home-rec-details {
+  margin-top: 12px;
+}
+
+.home-rec-desc {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.home-rec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.home-rec-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 9px;
+  font-weight: 500;
+  color: #17223b;
+}
+
+.home-rec-cta {
+  width: 100%;
+  height: 32px;
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.home-rec-cta:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ---- Bottom navigation ---- */
+/* Styles live in BottomNav.css (shared across screens). */

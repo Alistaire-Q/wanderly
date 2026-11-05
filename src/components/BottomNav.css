@@ -1,0 +1,41 @@
+/* ============================================
+   Wanderly — Bottom Navigation
+   Shared by every screen that shows the tab bar.
+   ============================================ */
+
+.bottom-nav {
+  position: absolute;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 430px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(16, 94, 243, 0.43);
+  border-radius: 31px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+}
+
+.bottom-nav-btn {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #1f2937;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bottom-nav-btn:hover {
+  color: #186bf0;
+}
+
+.bottom-nav-btn.is-active {
+  color: #186bf0;
+}

@@ -1,0 +1,357 @@
+/* ============================================
+   Wanderly — Login Screen Styles
+   ============================================ */
+
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #186bf0 0%, #186bf0 35%, #f5f5f5 70%, #f5f5f5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Blue Header with Clouds ---- */
+.login-header {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Cloud base */
+.login-cloud {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50px;
+}
+
+.login-cloud::before,
+.login-cloud::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Cloud 1 — top left */
+.login-cloud-1 {
+  width: 140px;
+  height: 45px;
+  top: 60px;
+  left: 30px;
+}
+.login-cloud-1::before {
+  width: 65px;
+  height: 65px;
+  top: -30px;
+  left: 25px;
+}
+.login-cloud-1::after {
+  width: 45px;
+  height: 45px;
+  top: -15px;
+  left: 75px;
+}
+
+/* Cloud 2 — top right */
+.login-cloud-2 {
+  width: 110px;
+  height: 40px;
+  top: 45px;
+  right: 30px;
+}
+.login-cloud-2::before {
+  width: 55px;
+  height: 55px;
+  top: -25px;
+  left: 20px;
+}
+.login-cloud-2::after {
+  width: 35px;
+  height: 35px;
+  top: -12px;
+  left: 60px;
+}
+
+/* Cloud 3 — center bottom */
+.login-cloud-3 {
+  width: 75px;
+  height: 25px;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.login-cloud-3::before {
+  width: 35px;
+  height: 35px;
+  top: -15px;
+  left: 15px;
+}
+.login-cloud-3::after {
+  width: 20px;
+  height: 20px;
+  top: -8px;
+  left: 45px;
+}
+
+/* ---- White Card ---- */
+.login-card {
+  margin: 0 24px 40px 24px;
+  min-height: 0;
+  background: #f4f5f7;
+  border-radius: 20px;
+  padding: 40px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.login-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Title ---- */
+.login-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0062FF;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.3;
+}
+
+/* ---- Form ---- */
+.login-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input-group {
+  margin-bottom: 16px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #186bf0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #001033;
+  background: #ffffff;
+  outline: none;
+}
+
+.login-input::placeholder {
+  color: #8c9097;
+}
+
+/* ---- Forgot Password ---- */
+.login-forgot {
+  align-self: flex-end;
+  font-size: 12px;
+  font-weight: 500;
+  color: #5c6470;
+  text-decoration: none;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+/* ---- Notices / validation ---- */
+.login-notice {
+  width: 100%;
+  max-width: 340px;
+  margin: -14px 0 20px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #e7eefc;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #2a4a7e;
+  text-align: center;
+}
+
+.login-error {
+  margin: -4px 0 14px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #d93a40;
+}
+
+.login-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #8c9097;
+}
+
+.login-hint.is-error {
+  color: #d93a40;
+}
+
+.login-input-group.is-tight {
+  margin-bottom: 10px;
+}
+
+/* ---- Sign In Button ---- */
+.login-btn-signin {
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 30px;
+  border: none;
+  background: #186bf0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.login-btn-signin:hover:not(:disabled) {
+  background: #0d57d0;
+}
+
+.login-btn-signin:disabled,
+.login-btn-social:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---- Divider ---- */
+.login-divider {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.login-divider span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #7a828e;
+}
+
+/* ---- Social Buttons ---- */
+.login-social-buttons {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-btn-social {
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: none;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #001033;
+  cursor: pointer;
+  box-shadow: 0 10px 13px rgba(0, 0, 0, 0.08);
+}
+
+/* ---- Sign Up Link ---- */
+.login-signup-link {
+  margin-top: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #7a828e;
+}
+
+/* ---- Responsive ---- */
+@media (max-height: 700px) {
+  /* Short phones scroll the whole screen instead of an inner card. */
+  .login {
+    overflow-y: auto;
+  }
+
+  .login-card {
+    flex-shrink: 0;
+    min-height: auto;
+    margin-bottom: 24px;
+    overflow: visible;
+  }
+}
+
+@media (min-width: 480px) {
+  .login-title {
+    font-size: 32px;
+  }
+
+  .login-card {
+    padding: 40px 36px 36px;
+  }
+}
+
+@media (min-height: 900px) and (min-width: 700px) {
+  .login-header {
+    height: 240px;
+  }
+
+  .login-card {
+    margin: 0 32px 48px;
+    padding: 44px 40px 38px;
+  }
+}
+
+/* ---- Short screens (landscape phones / compact laptops) ---- */
+@media (max-height: 700px) {
+  .login-header {
+    height: 150px;
+  }
+
+  .login-card {
+    margin: 0 16px 20px;
+    padding: 26px 20px 24px;
+  }
+
+  .login-title {
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+
+  .login-input-group {
+    margin-bottom: 12px;
+  }
+
+  .login-input {
+    padding: 11px 14px;
+  }
+
+  .login-btn-signin {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+
+  .login-divider {
+    margin: 14px 0;
+  }
+
+  .login-btn-social {
+    padding: 11px 0;
+  }
+
+  .login-signup-link {
+    margin-top: 16px;
+  }
+}
